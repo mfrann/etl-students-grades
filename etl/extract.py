@@ -33,7 +33,3 @@ def extract_csv():
 
     return df_students, df_grades
 
-df_students, df_grades = extract_csv()
-print(f'Archivo de estudiantes:\n {df_students}')
-print()
-print(f'Archivo de notas:\n {df_grades}')
