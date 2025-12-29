@@ -30,6 +30,7 @@ def extract_csv():
         print('Todos los archivos cargados correctamente.')
     except FileNotFoundError as e:
         print(f'Archivos no cargados por error: {e}')
+        return None
 
-    return df_students, df_grades
+    return df_students.head(), df_grades.head()
 
