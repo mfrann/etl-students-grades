@@ -1,7 +1,8 @@
 '''
 #TODO: Transformar y limpiar archivos
-#TODO: LIMPIAR NOMBRES Y CIUDADES
-#TODO: RELLENAR EDADES FALTANTES CON EL PROMEDIO
+#TODO: VALIDAR SI LAS ID EXISTEN  ---COMPLETADO
+#TODO: LIMPIAR NOMBRES Y CIUDADES ---COMPLETADO
+#TODO: RELLENAR EDADES FALTANTES CON EL PROMEDIO --COMPLETADO
 #TODO: UNIR ESTUDIANTES + NOTAS
 #TODO: CALCULAR: PROMEDIO POR ESTUDIANTE / ESTADO(APROBADO/DESAPROBADO)
 
@@ -9,15 +10,13 @@
 
 # === LIBRERIAS === #
 
-import pandas as pd
 # ================= #
 
 #================================================#
 #                  TRANSFORM                     #
 #================================================#
 
-#todo: validar si las id existen 
-
+# VALIDAR SI LAS ID EXISTEN:
 def id_verify(df_students, df_grades):
     grades_id = set(df_grades['student_id'])
 
@@ -27,8 +26,24 @@ def id_verify(df_students, df_grades):
     id_novalido = df_students[~valid_id].copy()
 
     if not id_valido.empty:
-        print("La id si existe.\n")
+        print(f'La id {id_valido} \nsi existe.\n')
     else:
         print("La id no existe o es incorrecta\n")
     return id_valido, id_novalido
 
+#LIMPIAR NOMBRES, CIUDADES, EDADES
+def clean_city_name(df):
+    print(f'\n--- Limpiando datos vacios en columna CITY/NAME/AGE ---\n')
+
+
+    #Ver si hay elemento nulo y reemplazar por valor 'No especifica ciudad'
+    df['city'] = df['city'].fillna('Sin ciudad')
+    df['name'] = df['name'].fillna('Sin nombre')
+    df['age'] = df['age'].fillna(df['age'].mean()).astype(int)
+    
+    #Primero vamos a transformar todo el nombre de ciudad a una sola forma.
+    #Si el nombre es pura mayuscula o minuscula, lo llevaremos a Esta Forma.
+    df['city'] = df['city'].astype(str).str.title() # --> Capitaliza cada palabra en esa columna
+    df['name'] = df['name'].astype(str).str.title()
+    df['age'] = df['age'].astype(int)
+    return df                       

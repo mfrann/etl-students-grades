@@ -16,9 +16,7 @@ DATA_DIR = BASE_DIR / "data"
 # Funcion para leer archivo, error: si no existe el archivo 
 
 def extract_csv():
-    '''
-    Docstring for extract_csv
-    '''
+
     print('Cargando archivos...')
     
     try:
@@ -32,5 +30,5 @@ def extract_csv():
         print(f'Archivos no cargados por error: {e}')
         return None
 
-    return df_students.head(), df_grades.head()
+    return df_students, df_grades
 

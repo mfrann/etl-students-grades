@@ -1,23 +1,57 @@
 from extract import extract_csv
-from transform import id_verify
-def run_etl():
+from transform import (
+    id_verify,
+    clean_city_name
+)
+from tqdm import tqdm
+import time
+import pandas as pd
 
+def run_etl():
+    print('Comenzando con el proceso de ETL..\n')
+    for i in tqdm(range(100), desc="Cargando"):
+        time.sleep(0.02)
+    print("===" * 20)
     #================================================#
     #            TODO: EXTRAER (EXTRACT)             #
     #================================================#
+    print('--- Extrayendo los archivos CSV... ---\n')
+    
+    for i in tqdm(range(100), desc="Cargando"):
+        time.sleep(0.02)
     
     df_students, df_grades = extract_csv()
-    print(f'Archivo de estudiantes:\n {df_students}')
+    print('✓ Tablas cargadas correctamente\n')
     print("===" * 20)
-    print(f'Archivo de notas:\n {df_grades}')
-
     #================================================#
-    #            TODO: TRANSFORM (VALIDATE)          #
+    #                TODO: TRANSFORM                 #
     #================================================#
+    print('--- Comenzando proceso de transformacion... ---\n')
+    for i in tqdm(range(100), desc="Cargando"):
+        time.sleep(0.1)
 
-    print(f'\nComprobando id en los archivos...\n')
+    # --- COMPROBANDO ID VALIDA
+    print(f'\n--- Comprobando id en los archivos... ---\n')
+    for i in tqdm(range(100), desc="Cargando"):
+        time.sleep(0.1)
+
     id_valido, id_novalido = id_verify(df_students, df_grades)
+    #print(id_valido, id_novalido)
+    print('✓ Archivos comprobados correctamente\n')
+    print("===" * 20)
 
-    print(id_valido, id_novalido)
+    # --- COMPLETANDO Y REVISANDO NULOS EN CITY/NAME
+    print(f'\nCompletando los nulos en columna CITY/NAME/AGE...\n')
+    for i in tqdm(range(100), desc="Cargando"):
+        time.sleep(0.1)
+
+    clean_city_name(df_students)
+    print(f'Mostrando tabla limpia de estudiantes: \n{df_students}\n')
+    print("===" * 20)
+    print('✓ Archivo completado correctamente\n')
+
+
+    return df_students, df_grades
+
 
 run_etl()
