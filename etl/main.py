@@ -33,7 +33,7 @@ def run_etl():
     # --- COMPROBANDO ID VALIDA
     print(f'\n--- Comprobando id en los archivos... ---\n')
     for i in tqdm(range(100), desc="Cargando"):
-        time.sleep(0.1)
+        time.sleep(0.02)
 
     id_valido, id_novalido = id_verify(df_students, df_grades)
     #print(id_valido, id_novalido)
@@ -43,12 +43,12 @@ def run_etl():
     # --- COMPLETANDO Y REVISANDO NULOS EN CITY/NAME
     print(f'\nCompletando los nulos en columna CITY/NAME/AGE...\n')
     for i in tqdm(range(100), desc="Cargando"):
-        time.sleep(0.1)
+        time.sleep(0.02)
 
     clean_city_name(df_students)
     print(f'Mostrando tabla limpia de estudiantes: \n{df_students}\n')
-    print("===" * 20)
     print('✓ Archivo completado correctamente\n')
+    print("===" * 20)
 
 
     return df_students, df_grades
