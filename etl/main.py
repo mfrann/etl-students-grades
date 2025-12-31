@@ -62,7 +62,8 @@ def run_etl():
     print('\n✓ Archivo unidos correctamente\n')
     print("===" * 20)
 
-    return df_students, df_grades
+    print('\nPrograma finalizado\n')
 
+    return df_students, df_grades
 
 run_etl()

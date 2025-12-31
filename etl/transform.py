@@ -3,15 +3,20 @@
 #TODO: VALIDAR SI LAS ID EXISTEN  ---COMPLETADO
 #TODO: LIMPIAR NOMBRES Y CIUDADES ---COMPLETADO
 #TODO: RELLENAR EDADES FALTANTES CON EL PROMEDIO --COMPLETADO
-#TODO: UNIR ESTUDIANTES + NOTAS
-#TODO: CALCULAR: PROMEDIO POR ESTUDIANTE / ESTADO(APROBADO/DESAPROBADO)
+#TODO: UNIR ESTUDIANTES + NOTAS --COMPLETADO
+#TODO: CALCULAR: PROMEDIO POR ESTUDIANTE / ESTADO(APROBADO/DESAPROBADO) --COMPLETADO
 
 '''
 
 # === LIBRERIAS === #
 import pandas as pd
 import numpy as np
+from pathlib import Path
 # ================= #
+
+# === PATHS === #
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "data"
 
 #================================================#
 #                  TRANSFORM                     #
@@ -69,13 +74,11 @@ def join_csv(df_students, df_grades):
 
     # --- CALCULAR EL ESTADO (APROBADO / DESAPROBADO)
     df_complete['state'] = np.where(
-        df_complete['average'] >= 11, 'APROBADO', 'DESAPROBADO'
+        df_complete['average'] >= 11, 'PASS', 'NO PASS'
     )
 
     # --- GUARDAR RESULTADO
-    #df_complete.to_csv('complete_report.csv', index=False)
-
-
+    df_complete.to_csv(DATA_DIR / 'complete_report.csv', index=False)
     print(df_complete)
-
+    print(f'Archivo guardado correctamente en {DATA_DIR}')
     return df_complete                   
