@@ -1,13 +1,15 @@
 from extract import extract_csv
 from transform import (
     id_verify,
-    clean_city_name
+    clean_city_name,
+    join_csv
 )
 from tqdm import tqdm
 import time
 import pandas as pd
 
 def run_etl():
+
     print('Comenzando con el proceso de ETL..\n')
     for i in tqdm(range(100), desc="Cargando"):
         time.sleep(0.02)
@@ -23,6 +25,7 @@ def run_etl():
     df_students, df_grades = extract_csv()
     print('✓ Tablas cargadas correctamente\n')
     print("===" * 20)
+    '''
     #================================================#
     #                TODO: TRANSFORM                 #
     #================================================#
@@ -49,7 +52,17 @@ def run_etl():
     print(f'Mostrando tabla limpia de estudiantes: \n{df_students}\n')
     print('✓ Archivo completado correctamente\n')
     print("===" * 20)
+    '''
 
+    # --- UNIENDO ARCHIVOS CSV
+    print(f'\n--- Uniendo archivos csv... ---\n')
+    for i in tqdm(range(100), desc="Cargando"):
+        time.sleep(0.02)
+
+    # --- FUNCION
+    join_csv(df_students, df_grades)
+    print('\n✓ Archivo unidos correctamente\n')
+    print("===" * 20)
 
     return df_students, df_grades
 

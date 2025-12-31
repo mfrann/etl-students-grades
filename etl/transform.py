@@ -9,7 +9,7 @@
 '''
 
 # === LIBRERIAS === #
-
+import pandas as pd
 # ================= #
 
 #================================================#
@@ -46,4 +46,27 @@ def clean_city_name(df):
     df['city'] = df['city'].astype(str).str.title() # --> Capitaliza cada palabra en esa columna
     df['name'] = df['name'].astype(str).str.title()
     df['age'] = df['age'].astype(int)
-    return df                       
+    return df
+
+#UNIR ESTUDIANTES + NOTAS / CALCULAR PROMEDIO POR ESTUDIANTE Y ESTADO
+def join_csv(df_students, df_grades):
+    
+    # --- CALCULAR PROMEDIO POR ESTUDIANTE
+    df_average = df_grades.groupby('student_id')['grade'].mean().reset_index() #Calcula el promedio
+    df_average.columns = ['student_id', 'average']
+
+    # --- UNIMOS ESTUDIANTES CON PROMEDIOS
+
+    df_complete = pd.merge(
+        df_students,
+        df_average,
+        on='student_id',
+        how='left'
+    )    
+
+
+
+    # --- CALCULAR EL ESTADO (APROBADO / DESAPROBADO)
+    print(df_complete)
+
+    return df_complete                   
