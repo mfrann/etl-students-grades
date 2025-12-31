@@ -10,6 +10,7 @@
 
 # === LIBRERIAS === #
 import pandas as pd
+import numpy as np
 # ================= #
 
 #================================================#
@@ -67,6 +68,14 @@ def join_csv(df_students, df_grades):
 
 
     # --- CALCULAR EL ESTADO (APROBADO / DESAPROBADO)
+    df_complete['state'] = np.where(
+        df_complete['average'] >= 11, 'APROBADO', 'DESAPROBADO'
+    )
+
+    # --- GUARDAR RESULTADO
+    #df_complete.to_csv('complete_report.csv', index=False)
+
+
     print(df_complete)
 
     return df_complete                   

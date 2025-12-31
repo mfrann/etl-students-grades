@@ -25,7 +25,6 @@ def run_etl():
     df_students, df_grades = extract_csv()
     print('✓ Tablas cargadas correctamente\n')
     print("===" * 20)
-    '''
     #================================================#
     #                TODO: TRANSFORM                 #
     #================================================#
@@ -52,7 +51,6 @@ def run_etl():
     print(f'Mostrando tabla limpia de estudiantes: \n{df_students}\n')
     print('✓ Archivo completado correctamente\n')
     print("===" * 20)
-    '''
 
     # --- UNIENDO ARCHIVOS CSV
     print(f'\n--- Uniendo archivos csv... ---\n')
