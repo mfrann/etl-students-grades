@@ -46,43 +46,6 @@ ETL-STUDENTS-GRADES/
 └── requirements.txt          # Dependencias del proyecto
 ```
 
-## 🔧 Instalación
-
-### Prerrequisitos
-
-- Python 3.8 o superior
-- pip
-
-### Pasos
-
-1. **Clonar el repositorio**
-
-```bash
-git clone https://github.com/tu-usuario/etl-students-grades.git
-cd etl-students-grades
-```
-
-2. **Crear entorno virtual (recomendado)**
-
-```bash
-python -m venv .env
-source .env/bin/activate  # En Windows: .env\Scripts\activate
-```
-
-3. **Instalar dependencias**
-
-```bash
-pip install -r requirements.txt
-```
-
-## 🚀 Uso
-
-### Ejecutar el pipeline completo
-
-```bash
-python etl/main.py
-```
-
 ## 📊 Datos de Entrada
 
 ### `students.csv`
@@ -167,6 +130,43 @@ Ver el archivo `querys/querys.sql` para ejemplos de consultas útiles:
 - Estudiantes aprobados
 - Promedio de estudiantes
 - Cantidad de estudiantes
+
+## 🔧 Instalación
+
+### Prerrequisitos
+
+- Python 3.8 o superior
+- pip
+
+### Pasos
+
+1. **Clonar el repositorio**
+
+```bash
+git clone https://github.com/mfrann/etl-students-grades.git
+cd etl-students-grades
+```
+
+2. **Crear entorno virtual (recomendado)**
+
+```bash
+python -m venv .env
+source .env/bin/activate  # En Windows: .env\Scripts\activate
+```
+
+3. **Instalar dependencias**
+
+```bash
+pip install -r requirements.txt
+```
+
+## 🚀 Uso
+
+### Ejecutar el pipeline completo
+
+```bash
+python etl/main.py
+```
 
 ## 🛠️ Tecnologías Utilizadas
 
