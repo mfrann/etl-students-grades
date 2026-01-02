@@ -88,6 +88,5 @@ def run_etl():
     return df_students, df_grades
 
 
-
-
-run_etl()
+if __name__ == "__main__":
+    run_etl()
