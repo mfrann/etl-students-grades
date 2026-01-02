@@ -59,7 +59,7 @@ def run_etl():
 
     # --- FUNCION
     join_csv(df_students, df_grades)
-    print('\n✓ Archivo unidos correctamente\n')
+
     print("===" * 20)
 
     print('\nPrograma finalizado\n')

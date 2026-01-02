@@ -1,0 +1,8 @@
+student_id,name,age,city,average,state
+1,Ana Torres,18,Lima,16.5,PASS
+2,Carlos Pérez,19,Arequipa,11.0,PASS
+3,Lucía Gómez,19,Lima,20.0,PASS
+4,Sin Nombre,20, Trujillo,9.5,NO PASS
+5,María Díaz,18,Lima,17.0,PASS
+6,Pedro Quispe,21,Arequipa,14.0,PASS
+7,Sin Nombre,19,Sin Ciudad,9.0,NO PASS

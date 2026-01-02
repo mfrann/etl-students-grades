@@ -80,5 +80,6 @@ def join_csv(df_students, df_grades):
     # --- GUARDAR RESULTADO
     df_complete.to_csv(DATA_DIR / 'complete_report.csv', index=False)
     print(df_complete)
-    print(f'Archivo guardado correctamente en {DATA_DIR}')
+    print('\n✓ Archivo unidos correctamente\n')
+    print(f'\n✓ Archivo guardado correctamente en {DATA_DIR}')
     return df_complete                   
