@@ -16,7 +16,7 @@ from pathlib import Path
 
 # === PATHS === #
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data"
+OUT_DIR = BASE_DIR / "outputs"
 
 #================================================#
 #                  TRANSFORM                     #
@@ -73,13 +73,13 @@ def join_csv(df_students, df_grades):
 
 
     # --- CALCULAR EL ESTADO (APROBADO / DESAPROBADO)
-    df_complete['state'] = np.where(
+    df_complete['status'] = np.where(
         df_complete['average'] >= 11, 'PASS', 'NO PASS'
     )
 
     # --- GUARDAR RESULTADO
-    df_complete.to_csv(DATA_DIR / 'complete_report.csv', index=False)
+    df_complete.to_csv(OUT_DIR / 'complete_report.csv', index=False)
     print(df_complete)
     print('\n✓ Archivo unidos correctamente\n')
-    print(f'\n✓ Archivo guardado correctamente en {DATA_DIR}')
+    print(f'\n✓ Archivo guardado correctamente en {OUT_DIR}')
     return df_complete                   

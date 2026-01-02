@@ -1,12 +1,22 @@
+
+#=== IMPORTS ===#
+
 from extract import extract_csv
 from transform import (
     id_verify,
     clean_city_name,
     join_csv
 )
+from load import load_csv
 from tqdm import tqdm
 import time
-import pandas as pd
+from pathlib import Path
+
+#================#
+
+# === PATH ===#
+BASE_DIR = Path(__file__).resolve().parent.parent
+OUT_DIR = BASE_DIR / "outputs"
 
 def run_etl():
 
@@ -62,8 +72,22 @@ def run_etl():
 
     print("===" * 20)
 
+
+    #================================================#
+    #                TODO: LOAD                      #
+    #================================================#
+    print('--- Comenzando proceso de carga a base de datos... ---\n')
+    for i in tqdm(range(100), desc="Cargando"):
+        time.sleep(0.1)
+    
+    load_csv(OUT_DIR / 'complete_report.csv')
+    
+    print("===" * 20)
     print('\nPrograma finalizado\n')
 
     return df_students, df_grades
+
+
+
 
 run_etl()

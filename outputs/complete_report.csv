@@ -1,4 +1,4 @@
-student_id,name,age,city,average,state
+student_id,name,age,city,average,status
 1,Ana Torres,18,Lima,16.5,PASS
 2,Carlos Pérez,19,Arequipa,11.0,PASS
 3,Lucía Gómez,19,Lima,20.0,PASS
