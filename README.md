@@ -140,10 +140,10 @@ student_id,course,grade
 
 El pipeline genera un reporte con la siguiente estructura:
 
-| student_id | name         | age | city     | average | status   |
-| ---------- | ------------ | --- | -------- | ------- | -------- |
-| 1          | Ana Torres   | 18  | Lima     | 16.5    | Aprobado |
-| 2          | Carlos Pérez | 19  | Arequipa | 11.0    | Aprobado |
+| student_id | name         | age | city     | average | status |
+| ---------- | ------------ | --- | -------- | ------- | ------ |
+| 1          | Ana Torres   | 18  | Lima     | 16.5    | PASS   |
+| 2          | Carlos Pérez | 19  | Arequipa | 11.0    | PASS   |
 
 ## 🗄️ Base de Datos
 
@@ -177,23 +177,9 @@ Ver el archivo `querys/querys.sql` para ejemplos de consultas útiles:
 
 ## 👨‍💻 Autor
 
-**Tu Nombre**
+**Martin Caycho**
 
 - GitHub: [@mfrann](https://github.com/mfrann)
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT.
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
 
 ---
 
